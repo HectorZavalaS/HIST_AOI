@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:RPCServices" name="RPCServices" targetNamespace="urn:RPCServices" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="RPCServices_executeCommand">
+    <part name="String_1" type="xsd:string" />
+    <part name="String_2" type="xsd:string" />
+  </message>
+  <message name="RPCServices_executeCommandResponse">
+    <part name="result" type="xsd:string" />
+  </message>
+  <portType name="RPCServices">
+    <operation name="executeCommand" parameterOrder="String_1 String_2">
+      <input message="tns:RPCServices_executeCommand" />
+      <output message="tns:RPCServices_executeCommandResponse" />
+    </operation>
+  </portType>
+  <binding name="RPCServicesBinding" type="tns:RPCServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="executeCommand">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="encoded" namespace="urn:RPCServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RPCServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="RPCServices">
+    <port name="RPCServicesPort" binding="tns:RPCServicesBinding">
+      <soap:address location="http://192.168.3.6:80/cgsrpc/RPCServices" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3075B2DD-7776-4143-B846-E96CF63E4E46}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HIST_AOI</RootNamespace>
+    <AssemblyName>HIST_AOI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoTrans.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Design, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Docking, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Krypton.Components.Suite.4.5.9\lib\net20\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="IBM.Data.DB2, Version=9.7.4.4, Culture=neutral, PublicKeyToken=7c307b91aa13d208, processorArchitecture=AMD64">
+      <HintPath>..\packages\IBM.Data.DB.Provider.11.1.4040.4\lib\net451\x64\IBM.Data.DB2.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>Lib\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlConnector, Version=0.69.4.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlConnector.0.69.4\lib\net45\MySqlConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.6.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.19.6.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.0\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\CCAMX.cs" />
+    <Compile Include="Class\CCogiscan.cs" />
+    <Compile Include="Class\CCogiscanCGS.cs" />
+    <Compile Include="Class\CCogiscanCGSDW.cs" />
+    <Compile Include="Class\CLine.cs" />
+    <Compile Include="Class\CModelInfo.cs" />
+    <Compile Include="Class\CMonitor_AOI.cs" />
+    <Compile Include="Class\CMySQL.cs" />
+    <Compile Include="Class\COracle.cs" />
+    <Compile Include="Class\CThread.cs" />
+    <Compile Include="Class\Pallets_smt.cs" />
+    <Compile Include="Connected Services\wsCAMX\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\wsCogiscan\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="histByDJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="histByDJ.Designer.cs">
+      <DependentUpon>histByDJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getAOILineByR_Result.cs">
+      <DependentUpon>siixsem_main_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getAOILines_Result.cs">
+      <DependentUpon>siixsem_main_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getAOILine_Result.cs">
+      <DependentUpon>siixsem_main_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getAOIPendingTest_Result.cs">
+      <DependentUpon>siixsem_aoi_ky_results.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getAOIPending_Result.cs">
+      <DependentUpon>siixsem_aoi_ky_results.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getXrayResult_Result.cs">
+      <DependentUpon>siixsem_mits_project.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\insertPallet_Result.cs">
+      <DependentUpon>siixsem_aoi_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\insertSerial_Result.cs">
+      <DependentUpon>siixsem_aoi_ky_results.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\isPallet_Result.cs">
+      <DependentUpon>siixsem_main_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_aoi_db.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_aoi_db.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_aoi_db.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_aoi_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_aoi_db.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_aoi_db.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_aoi_ky_results.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_aoi_ky_results.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_aoi_ky_results.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_aoi_ky_results.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_aoi_ky_results.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_aoi_ky_results.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_history_t.cs">
+      <DependentUpon>siixsem_aoi_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_main_db.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_main_db.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_main_db.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_main_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_main_db.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_main_db.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_mits_project.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_mits_project.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_mits_project.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_mits_project.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_mits_project.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siixsem_mits_project.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siixsem_NLog_t.cs">
+      <DependentUpon>siixsem_aoi_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="histByDJ.resx">
+      <DependentUpon>histByDJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Connected Services\wsCAMX\CAMX-WS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wsCAMX\CAMXMessageBrokerImplService.wsdl" />
+    <None Include="Connected Services\wsCAMX\HIST_AOI.wsCAMX.acknowledgeEventsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsCAMX\HIST_AOI.wsCAMX.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsCAMX\HIST_AOI.wsCAMX.logoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsCAMX\HIST_AOI.wsCAMX.postEventsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsCAMX\HIST_AOI.wsCAMX.pullEventsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsCAMX\HIST_AOI.wsCAMX.subscribeForEventResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsCAMX\HIST_AOI.wsCAMX.waitForEventResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsCogiscan\RPCServices.wsdl" />
+    <EntityDeploy Include="Models\siixsem_main_db.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>siixsem_main_db.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Models\siixsem_aoi_db.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>siixsem_aoi_db.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\siixsem_aoi_db.edmx.diagram">
+      <DependentUpon>siixsem_aoi_db.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Models\siixsem_aoi_ky_results.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>siixsem_aoi_ky_results.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\siixsem_aoi_ky_results.edmx.diagram">
+      <DependentUpon>siixsem_aoi_ky_results.edmx</DependentUpon>
+    </None>
+    <None Include="Models\siixsem_main_db.edmx.diagram">
+      <DependentUpon>siixsem_main_db.edmx</DependentUpon>
+    </None>
+    <Content Include="logoTrans.ico" />
+    <Content Include="Models\siixsem_aoi_db.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>siixsem_aoi_db.edmx</DependentUpon>
+      <LastGenOutput>siixsem_aoi_db.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\siixsem_aoi_db.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>siixsem_aoi_db.edmx</DependentUpon>
+      <LastGenOutput>siixsem_aoi_db.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\siixsem_aoi_ky_results.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>siixsem_aoi_ky_results.edmx</DependentUpon>
+      <LastGenOutput>siixsem_aoi_ky_results.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\siixsem_aoi_ky_results.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>siixsem_aoi_ky_results.edmx</DependentUpon>
+      <LastGenOutput>siixsem_aoi_ky_results.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\siixsem_mits_project.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>siixsem_mits_project.edmx</DependentUpon>
+      <LastGenOutput>siixsem_mits_project.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\siixsem_mits_project.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>siixsem_mits_project.edmx</DependentUpon>
+      <LastGenOutput>siixsem_mits_project.cs</LastGenOutput>
+    </Content>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\siixsem_mits_project.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>siixsem_mits_project.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\siixsem_mits_project.edmx.diagram">
+      <DependentUpon>siixsem_mits_project.edmx</DependentUpon>
+    </None>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\wsCAMX\" />
+    <WCFMetadataStorage Include="Connected Services\wsCogiscan\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsCAMX\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsCAMX\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsCAMX\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsCogiscan\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsCogiscan\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsCogiscan\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="back.jpg" />
+    <None Include="bck2.jpg" />
+    <None Include="circuit.png" />
+    <Content Include="Models\siixsem_main_db.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>siixsem_main_db.Context.cs</LastGenOutput>
+      <DependentUpon>siixsem_main_db.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\siixsem_main_db.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>siixsem_main_db.edmx</DependentUpon>
+      <LastGenOutput>siixsem_main_db.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\IBM.Data.DB2.Core.1.3.0.100\build\IBM.Data.DB2.Core.targets" Condition="Exists('..\packages\IBM.Data.DB2.Core.1.3.0.100\build\IBM.Data.DB2.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\IBM.Data.DB2.Core.1.3.0.100\build\IBM.Data.DB2.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\IBM.Data.DB2.Core.1.3.0.100\build\IBM.Data.DB2.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\IBM.Data.DB.Provider.11.1.4040.4\build\IBM.Data.DB.Provider.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\IBM.Data.DB.Provider.11.1.4040.4\build\IBM.Data.DB.Provider.targets'))" />
+  </Target>
+  <Import Project="..\packages\IBM.Data.DB.Provider.11.1.4040.4\build\IBM.Data.DB.Provider.targets" Condition="Exists('..\packages\IBM.Data.DB.Provider.11.1.4040.4\build\IBM.Data.DB.Provider.targets')" />
+</Project>

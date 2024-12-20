@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="siixsem_aoi_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="siixsem_history_t">
+          <Key>
+            <PropertyRef Name="se_id" />
+          </Key>
+          <Property Name="se_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="se_panel_id" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="se_test_result" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="se_line" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="se_message" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="se_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="siixsem_NLog_t">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MachineName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Logged" Type="datetime" Nullable="false" />
+          <Property Name="Level" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Logger" Type="nvarchar" MaxLength="300" />
+          <Property Name="Properties" Type="nvarchar(max)" />
+          <Property Name="Callsite" Type="nvarchar" MaxLength="300" />
+          <Property Name="Exception" Type="nvarchar(max)" />
+        </EntityType>
+        <Function Name="insertPallet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serial" Type="nvarchar" Mode="In" />
+          <Parameter Name="result" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serial" Type="nvarchar" Mode="In" />
+          <Parameter Name="result" Type="nvarchar" Mode="In" />
+          <Parameter Name="line" Type="nvarchar" Mode="In" />
+          <Parameter Name="message" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertSerial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idItem" Type="int" Mode="In" />
+          <Parameter Name="serial" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="NLog_AddEntry_p" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="machineName" Type="nvarchar" Mode="In" />
+          <Parameter Name="logged" Type="datetime" Mode="In" />
+          <Parameter Name="level" Type="varchar" Mode="In" />
+          <Parameter Name="message" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="logger" Type="nvarchar" Mode="In" />
+          <Parameter Name="properties" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="callsite" Type="nvarchar" Mode="In" />
+          <Parameter Name="exception" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="siixsem_aoi_dbModelStoreContainer">
+          <EntitySet Name="siixsem_history_t" EntityType="Self.siixsem_history_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="siixsem_NLog_t" EntityType="Self.siixsem_NLog_t" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="siixsem_aoi_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="siixsem_history_t">
+          <Key>
+            <PropertyRef Name="se_id" />
+          </Key>
+          <Property Name="se_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="se_panel_id" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="se_test_result" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="se_line" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="se_message" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="se_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="siixsem_NLog_t">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MachineName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Logged" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Level" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Logger" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Properties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Callsite" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Exception" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="siixsem_aoi_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="siixsem_history_t" EntityType="Self.siixsem_history_t" />
+          <EntitySet Name="siixsem_NLog_t" EntityType="Self.siixsem_NLog_t" />
+          <FunctionImport Name="insertResult">
+            <Parameter Name="serial" Mode="In" Type="String" />
+            <Parameter Name="result" Mode="In" Type="String" />
+            <Parameter Name="line" Mode="In" Type="String" />
+            <Parameter Name="message" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="NLog_AddEntry_p">
+            <Parameter Name="machineName" Mode="In" Type="String" />
+            <Parameter Name="logged" Mode="In" Type="DateTime" />
+            <Parameter Name="level" Mode="In" Type="String" />
+            <Parameter Name="message" Mode="In" Type="String" />
+            <Parameter Name="logger" Mode="In" Type="String" />
+            <Parameter Name="properties" Mode="In" Type="String" />
+            <Parameter Name="callsite" Mode="In" Type="String" />
+            <Parameter Name="exception" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertPallet" ReturnType="Collection(siixsem_aoi_dbModel.insertPallet_Result)">
+            <Parameter Name="serial" Mode="In" Type="String" />
+            <Parameter Name="result" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertSerial" ReturnType="Collection(Int32)">
+            <Parameter Name="idItem" Mode="In" Type="Int32" />
+            <Parameter Name="serial" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="insertPallet_Result">
+          <Property Type="Int32" Name="RESULT" Nullable="false" />
+          <Property Type="Int32" Name="IDPALLET" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="siixsem_aoi_dbModelStoreContainer" CdmEntityContainer="siixsem_aoi_dbEntities">
+          <EntitySetMapping Name="siixsem_history_t">
+            <EntityTypeMapping TypeName="siixsem_aoi_dbModel.siixsem_history_t">
+              <MappingFragment StoreEntitySet="siixsem_history_t">
+                <ScalarProperty Name="se_id" ColumnName="se_id" />
+                <ScalarProperty Name="se_panel_id" ColumnName="se_panel_id" />
+                <ScalarProperty Name="se_test_result" ColumnName="se_test_result" />
+                <ScalarProperty Name="se_line" ColumnName="se_line" />
+                <ScalarProperty Name="se_message" ColumnName="se_message" />
+                <ScalarProperty Name="se_date" ColumnName="se_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="siixsem_NLog_t">
+            <EntityTypeMapping TypeName="siixsem_aoi_dbModel.siixsem_NLog_t">
+              <MappingFragment StoreEntitySet="siixsem_NLog_t">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="Logged" ColumnName="Logged" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Logger" ColumnName="Logger" />
+                <ScalarProperty Name="Properties" ColumnName="Properties" />
+                <ScalarProperty Name="Callsite" ColumnName="Callsite" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="insertResult" FunctionName="siixsem_aoi_dbModel.Store.insertResult" />
+          <FunctionImportMapping FunctionImportName="NLog_AddEntry_p" FunctionName="siixsem_aoi_dbModel.Store.NLog_AddEntry_p" />
+          <FunctionImportMapping FunctionImportName="insertPallet" FunctionName="siixsem_aoi_dbModel.Store.insertPallet" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_aoi_dbModel.insertPallet_Result">
+                <ScalarProperty Name="RESULT" ColumnName="RESULT" />
+                <ScalarProperty Name="IDPALLET" ColumnName="IDPALLET" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="insertSerial" FunctionName="siixsem_aoi_dbModel.Store.insertSerial" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
